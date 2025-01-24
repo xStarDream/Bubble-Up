@@ -1,1 +1,45 @@
-{}
+{
+    "name": "Ccmandi",
+    "maps": [
+        {
+            "name": "CharacterControls",
+            "id": "48a331a1-ff7f-44f8-ae0b-9e512a64d1cd",
+            "actions": [
+                {
+                    "name": "MouseSxDx",
+                    "type": "Button",
+                    "id": "8512bd29-eee9-4081-b930-34e47df86c3b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b0245b0c-2c24-4afc-a8b6-e91b03a38fdc",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseSxDx",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b7eaab2-1aab-4e10-914a-1ce921de4bd0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseSxDx",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
