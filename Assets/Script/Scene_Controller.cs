@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public static class Scene_Controller 
+public static class Scene_Controller
 {
     public static void LoadScene(int sceneIndex)
     {
-        LoadScene(sceneIndex);
+        Debug.Log("Caricamento della scena con indice: " + sceneIndex);
+        SceneManager.LoadScene(sceneIndex); // Usa SceneManager per caricare la scena
     }
     public static void RestartGame()
     {

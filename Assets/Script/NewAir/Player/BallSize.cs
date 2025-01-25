@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class BallSize : MonoBehaviour
     [SerializeField] Transform trPlayer;
     [SerializeField] FadeIn fadeIn;
     [SerializeField] PlayerInput input;
+    [SerializeField] GameObject canva;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,6 +29,7 @@ public class BallSize : MonoBehaviour
         if (trPlayer.transform.localScale.x <= 0.5f)
         {
             playerObj.SetActive(false);
+            canva.SetActive(true);
             fadeIn.StartFadeIn();
         }
     }
