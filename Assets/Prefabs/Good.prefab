@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7249387832373598327}
   m_Layer: 0
   m_Name: Good
-  m_TagString: Npc
+  m_TagString: Good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
