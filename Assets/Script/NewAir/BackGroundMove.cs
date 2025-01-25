@@ -7,7 +7,6 @@ public class BackGroundMove : MonoBehaviour
     [SerializeField] GameObject gameObj;
     [SerializeField] float fallSpeed = 0.15f; // Velocità della discesa, maggiore valore = più veloce
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(FallDown());
@@ -28,7 +27,7 @@ public class BackGroundMove : MonoBehaviour
                 break;
             }
 
-            yield return null; // Aspetta al prossimo frame
+            yield return null;
         }
     }
 }
