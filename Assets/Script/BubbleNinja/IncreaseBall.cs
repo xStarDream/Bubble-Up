@@ -5,7 +5,7 @@ using UnityEngine;
 public class IncreaseBall : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;  // Prefab da incrementare
-    [SerializeField] private float incrementSpeed = 0.03f;  // Velocità di incremento della scala
+    [SerializeField] private float incrementSpeed = 0.01f;  // Velocità di incremento della scala
     [SerializeField] private Vector3 targetScale = new Vector3(2f, 2f, 2f);  // Scala finale
 
 

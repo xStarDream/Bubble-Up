@@ -8,6 +8,7 @@ public class DestroyOnClick : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera; // La camera principale
     private PlayerInput input;
+    float secretScore = 0f;
 
     private void Awake()
     {
@@ -23,6 +24,14 @@ public class DestroyOnClick : MonoBehaviour
         };
     }
 
+    private void Update()
+    {
+        if(secretScore > 12f)
+        {
+            Debug.Log("CAMBIO SCENA FINE LIVELLO");
+        }
+    }
+
     private void DetectAndDestroy()
     {
         // Posizione del mouse
@@ -32,8 +41,10 @@ public class DestroyOnClick : MonoBehaviour
         // Raycast 2D
         RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.CompareTag("Npc"))
+        if (hit.collider != null && hit.collider.CompareTag("Good"))
         {
+            secretScore += 1f;
+
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
 
@@ -56,9 +67,36 @@ public class DestroyOnClick : MonoBehaviour
                 StartCoroutine(DestroyAfterAnimation(objAnimator, hit.collider.gameObject));
             }
         }
-        else
+        else if (hit.collider != null && hit.collider.CompareTag("Bad"))
         {
-            Debug.Log("Nessun oggetto con tag 'Npc' colpito");
+            secretScore -= 0.5f;
+            // Ottieni l'animator dall'oggetto colpito
+            Animator objAnimator = hit.collider.GetComponent<Animator>();
+
+            if (objAnimator != null)
+            {
+                var exp = Random.Range(0, 2);
+                if (exp == 0)
+                {
+                    // Attiva l'animazione di esplosione
+                    objAnimator.SetTrigger("Explosion");
+                }
+                else
+                {
+                    // Attiva l'animazione di esplosione
+                    objAnimator.SetTrigger("Explosion2");
+                }
+
+
+                // Distruggi l'oggetto dopo che l'animazione è terminata
+                StartCoroutine(DestroyAfterAnimation(objAnimator, hit.collider.gameObject));
+            }
+
+            else
+            {
+                Debug.Log("Nessun oggetto con tag 'Npc' colpito");
+            }
+            Debug.Log("secret score " + secretScore);
         }
     }
 

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I'M SORRY
+  m_text: I LOVE YOU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23dcabcf7be3b1241ba1a24b723d7b74, type: 2}
   m_sharedMaterial: {fileID: -8740777330707787416, guid: 23dcabcf7be3b1241ba1a24b723d7b74, type: 2}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: -6912088945819517509}
   - component: {fileID: -8290032404629063069}
   m_Layer: 0
-  m_Name: BubbleGood
+  m_Name: BubbleGood 8
   m_TagString: Good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

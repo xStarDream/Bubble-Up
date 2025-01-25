@@ -489,10 +489,24 @@ MonoBehaviour:
   topDx: {fileID: 137444382}
   bottomSx: {fileID: 218417418}
   bottomDx: {fileID: 520489836}
-  gameObjGood: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-  gameObjBad: {fileID: 6130043378835528148, guid: 0fc9f8e3493a23a4ca3cac4ed81b28f6, type: 3}
-  bubbleGood: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-  bubbleBad: {fileID: 6130043378835528148, guid: 0fc9f8e3493a23a4ca3cac4ed81b28f6, type: 3}
+  bubbleGoods:
+  - {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
+  - {fileID: 6130043378835528148, guid: c5c65d3327ad675428120c7408940e56, type: 3}
+  - {fileID: 6130043378835528148, guid: 7c51c045c2b345643bb80993c860aca0, type: 3}
+  - {fileID: 6130043378835528148, guid: 05d5402d06997ab4eaee18a6c157b997, type: 3}
+  - {fileID: 6130043378835528148, guid: 47095c1a80b68394d8cb9dc01b4e1e8c, type: 3}
+  - {fileID: 6130043378835528148, guid: 1de3bc4a1a201df4cb522b0119b7cf2a, type: 3}
+  - {fileID: 6130043378835528148, guid: c4804140f2a4ad14f86d3f9f029fdba6, type: 3}
+  - {fileID: 6130043378835528148, guid: fef3d391144aa544d9ea3904d93f1cd1, type: 3}
+  bubbleBads:
+  - {fileID: 6130043378835528148, guid: 0fc9f8e3493a23a4ca3cac4ed81b28f6, type: 3}
+  - {fileID: 6130043378835528148, guid: 529d57b36ba14c148a9597e156679006, type: 3}
+  - {fileID: 6130043378835528148, guid: 26f24d16be2563a448a76c2299af7e05, type: 3}
+  - {fileID: 6130043378835528148, guid: d51b8d3bb1510e949b9bc69d8409ac8c, type: 3}
+  - {fileID: 6130043378835528148, guid: 95a637988030d9d46920230e7451a804, type: 3}
+  - {fileID: 6130043378835528148, guid: 01ba967eeb620af4a84029688d082e83, type: 3}
+  - {fileID: 6130043378835528148, guid: d6653df97bd9243469cac3f9da2d41e0, type: 3}
+  - {fileID: 6130043378835528148, guid: c4b62e4c6b3295345893634534ac383f, type: 3}
   poolGood:
   - I FEEL YOU
   - BELIEVE IN YOURSELF
@@ -597,6 +611,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1181694733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181694734}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181694734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181694733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6131369, y: 0.22110637, z: 0.100797795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974285219
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,3 +686,4 @@ SceneRoots:
   - {fileID: 1974285220}
   - {fileID: 1174608594}
   - {fileID: 175235466}
+  - {fileID: 1181694734}
