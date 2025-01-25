@@ -5,6 +5,9 @@ using UnityEngine;
 public class HitBarHandler : MonoBehaviour
 {
     [SerializeField] Bar Bar;
+    [SerializeField] BubbleCharacter bubblePlayer;
+    [SerializeField] BubbleCharacter bubbleNPC;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +19,11 @@ public class HitBarHandler : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Bar.Position == BarPosition.At_Center && Input.GetMouseButtonDown(0))
+        if (Bar.isAtCenter && Input.GetMouseButtonDown(0))
         {
-
+            Debug.Log("Click");
+            //MoveBubble(bubblePlayer, 1);
+            //MoveBubble(bubbleNPC, -1);
         }
         // if ((position == BarPosition.At_Up || position == BarPosition.At_Down) && Input.GetMouseButtonDown(0))
         // {
@@ -27,5 +32,11 @@ public class HitBarHandler : MonoBehaviour
         // }
     }
 
+    void MoveBubble(BubbleCharacter bubbleCharacter, float speed)
+    {
+        Vector3 newPosition = bubbleCharacter.transform.position;
+        newPosition.x += speed;
+        bubbleCharacter.transform.position = newPosition;
+    }
     
 }

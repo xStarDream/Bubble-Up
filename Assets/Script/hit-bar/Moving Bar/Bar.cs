@@ -22,7 +22,7 @@ public class Bar : MonoBehaviour
     [SerializeField] LeftSquare Left_Square;
     [SerializeField] RightSquare Right_Square;
     [SerializeField] CenterSquare Center_Square;
-    [SerializeField] float speed;
+    [SerializeField] float speed = 0.5f;
 
     Collider2D trigger_center;
     BarState state;
@@ -42,14 +42,14 @@ public class Bar : MonoBehaviour
         {
             MoveBar(Vector3.left, Limit_Left.transform.position.x, BarState.ToRight);
 #if UNITY_EDITOR
-            Debug.Log("To Left");
+            //Debug.Log("To Left");
 #endif
         }
         else if (state == BarState.ToRight)
         {
             MoveBar(Vector3.right, Limit_Right.transform.position.x, BarState.ToLeft);
 #if UNITY_EDITOR
-            Debug.Log("To Right");
+            //Debug.Log("To Right");
 #endif
         }
 
@@ -74,7 +74,9 @@ public class Bar : MonoBehaviour
         if (other == trigger_center)
         {
             isAtCenter = true;
-            Debug.Log("Bar is at center");
+#if UNITY_EDITOR
+            //Debug.Log("Bar is at center");
+#endif
         }
     }
 
