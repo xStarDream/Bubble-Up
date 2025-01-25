@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bolle_Tipologie_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1067.3334
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cafe533a0a23934da0bc218b157381e
+      internalID: -1867531088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolle_Tipologie_1
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 0
+        width: 1067.3334
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c05cc5d8b1a9bc47ab5313780fcaec1
+      internalID: 212505015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolle_Tipologie_2
+      rect:
+        serializedVersion: 2
+        x: 2134
+        y: 0
+        width: 1067.3334
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f68310d3254ec4c86e111b07484549
+      internalID: 1901241378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolle_Tipologie_3
+      rect:
+        serializedVersion: 2
+        x: 3201
+        y: 0
+        width: 1067.3334
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8698a6d9b58ef59409908b672bdaf434
+      internalID: -1606597239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolle_Tipologie_4
+      rect:
+        serializedVersion: 2
+        x: 4268
+        y: 0
+        width: 1067.3334
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ffe82f97d4c1c45a8eb3eb0ec54863
+      internalID: -1794192137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolle_Tipologie_5
+      rect:
+        serializedVersion: 2
+        x: 5335
+        y: 0
+        width: 1067.3334
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2fd2ee1ba3a9d46984de32c5a9d743
+      internalID: 129166344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +258,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bolle_Tipologie_0: -1867531088
+      Bolle_Tipologie_1: 212505015
+      Bolle_Tipologie_2: 1901241378
+      Bolle_Tipologie_3: -1606597239
+      Bolle_Tipologie_4: -1794192137
+      Bolle_Tipologie_5: 129166344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

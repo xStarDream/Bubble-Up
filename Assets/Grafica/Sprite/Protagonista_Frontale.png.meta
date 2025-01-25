@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Protagonista_Frontale_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b858e35471ab245478a50721e2137614
+      internalID: -671652451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Frontale_1
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1971ede5c8490c34fb9b363cb6034cee
+      internalID: -679937583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Frontale_2
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0bb0e9c865590f48b507a40ed28af60
+      internalID: -741260625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Frontale_3
+      rect:
+        serializedVersion: 2
+        x: 3198
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0258909b774476446a0ad4637852b17b
+      internalID: 1652902254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Frontale_4
+      rect:
+        serializedVersion: 2
+        x: 4264
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4185f7fef09342f41a12fea4e082b7d3
+      internalID: -494128168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Frontale_5
+      rect:
+        serializedVersion: 2
+        x: 5330
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03ee67cb4cd2854696f906188173f40
+      internalID: -185533198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Frontale_6
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 0
+        width: 1066.5714
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77918c2faff54c8489f4b4d9ca1da07d
+      internalID: 16006221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +279,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Protagonista_Frontale_0: -671652451
+      Protagonista_Frontale_1: -679937583
+      Protagonista_Frontale_2: -741260625
+      Protagonista_Frontale_3: 1652902254
+      Protagonista_Frontale_4: -494128168
+      Protagonista_Frontale_5: -185533198
+      Protagonista_Frontale_6: 16006221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Protagonista_Laterale_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0e0c62351808b46bb45f44fd7d3ddc
+      internalID: -1983511867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_1
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956661fe5a7fc0949a8b562a1961e989
+      internalID: 1098591716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_2
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f4bbbd945b5514bba9466d1a8a348c
+      internalID: 604869401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_3
+      rect:
+        serializedVersion: 2
+        x: 3198
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e233cb69f968fd41ba26071f56a92f3
+      internalID: -933304594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_4
+      rect:
+        serializedVersion: 2
+        x: 4264
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5035d7342983148a63231070fdefc6
+      internalID: 1062029441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_5
+      rect:
+        serializedVersion: 2
+        x: 5330
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224207b15cd106441aaa7b800c257246
+      internalID: -1693015830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_6
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7a7556544171b4b9ae1dc22266dae9
+      internalID: 561479461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonista_Laterale_7
+      rect:
+        serializedVersion: 2
+        x: 7462
+        y: 0
+        width: 1066.625
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73be346836527af41af28dadbae8d116
+      internalID: 986821822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +300,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Protagonista_Laterale_0: -1983511867
+      Protagonista_Laterale_1: 1098591716
+      Protagonista_Laterale_2: 604869401
+      Protagonista_Laterale_3: -933304594
+      Protagonista_Laterale_4: 1062029441
+      Protagonista_Laterale_5: -1693015830
+      Protagonista_Laterale_6: 561479461
+      Protagonista_Laterale_7: 986821822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

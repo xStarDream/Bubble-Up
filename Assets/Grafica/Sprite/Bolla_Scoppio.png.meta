@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bolla_Scoppio_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1068.2
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c0375907c97c045ad4b559a1250f96
+      internalID: -695156532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolla_Scoppio_1
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 0
+        width: 1068.2
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52cf030b34b48634c981e1eea04ce619
+      internalID: -1738997532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolla_Scoppio_2
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 0
+        width: 1068.2
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f337b19f3500c4eb3874ee071e9623
+      internalID: -1883372575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolla_Scoppio_3
+      rect:
+        serializedVersion: 2
+        x: 3204
+        y: 0
+        width: 1068.2
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: effd2b4e69387934ba686e74f532c635
+      internalID: 202331264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bolla_Scoppio_4
+      rect:
+        serializedVersion: 2
+        x: 4272
+        y: 0
+        width: 1068.2
+        height: 1067
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74204dae73c1b71469a5d144ab57f5de
+      internalID: 2113930264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +237,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bolla_Scoppio_0: -695156532
+      Bolla_Scoppio_1: -1738997532
+      Bolla_Scoppio_2: -1883372575
+      Bolla_Scoppio_3: 202331264
+      Bolla_Scoppio_4: 2113930264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
