@@ -489,8 +489,30 @@ MonoBehaviour:
   topDx: {fileID: 137444382}
   bottomSx: {fileID: 218417418}
   bottomDx: {fileID: 520489836}
-  gameObj: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-  bubble: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
+  gameObjGood: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
+  gameObjBad: {fileID: 6130043378835528148, guid: 0fc9f8e3493a23a4ca3cac4ed81b28f6, type: 3}
+  bubbleGood: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
+  bubbleBad: {fileID: 6130043378835528148, guid: 0fc9f8e3493a23a4ca3cac4ed81b28f6, type: 3}
+  poolGood:
+  - I FEEL YOU
+  - BELIEVE IN YOURSELF
+  - DO WAHT YOU LOVE
+  - I'M SORRY
+  - YOU'RE NOT ALONE
+  - ARE YOU OK?
+  - HOW ARE YOU?
+  - HANG IN THERE
+  - I LOVE YOU
+  poolBad:
+  - YOU'RE A LOSER
+  - YOU'RE NOT ENOUGH
+  - YOU LOOK DEPRESSED
+  - JUST MOVE ON
+  - YOU'RE A MESS
+  - YOU SUCKS
+  - YOU'RE TOO LAZY
+  - SORRY, BUT I HAVE NO TIME
+  - MAYBE YOU'RE JUST SAD
 --- !u!1 &1174608592
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,63 +632,6 @@ Transform:
   - {fileID: 520489836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2063104201
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430772470004587276, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130043378835528148, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
-      propertyPath: m_Name
-      value: BubbleGood
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 48ff813e36675eb499566ac91b3c79c6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -676,4 +641,3 @@ SceneRoots:
   - {fileID: 1974285220}
   - {fileID: 1174608594}
   - {fileID: 175235466}
-  - {fileID: 2063104201}

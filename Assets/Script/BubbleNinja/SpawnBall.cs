@@ -9,12 +9,17 @@ public class SpawnBall : MonoBehaviour
     [SerializeField] Transform topDx;
     [SerializeField] Transform bottomSx;
     [SerializeField] Transform bottomDx;
-    [SerializeField] GameObject gameObj;
-    [SerializeField] GameObject bubble;
+    [SerializeField] GameObject gameObjGood;
+    [SerializeField] GameObject gameObjBad;
+    [SerializeField] GameObject bubbleGood;
+    [SerializeField] GameObject bubbleBad;
 
     int randomGoodBad = 0;
     float secretScore = 0f;
     float wait = 1f;
+
+    [SerializeField] string[] poolGood;
+    [SerializeField] string[] poolBad;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +41,11 @@ public class SpawnBall : MonoBehaviour
 
         if (flag == 0) // Buono
         {
-            Instantiate(bubble, spawnPosition, Quaternion.identity);
+            Instantiate(bubbleGood, spawnPosition, Quaternion.identity);
         }
         else // Cattivo
         {
-            Instantiate(bubble, spawnPosition, Quaternion.identity);
+            Instantiate(bubbleBad, spawnPosition, Quaternion.identity);
         }
     }
 
