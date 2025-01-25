@@ -59,8 +59,6 @@ public class CharacterMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("Pallina: " + rb.position + " Target: " + targetPosition);
-
         if (isMoving)
         {
             // Movimento fluido con Rigidbody2D
