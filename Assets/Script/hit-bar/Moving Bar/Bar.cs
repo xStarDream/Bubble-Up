@@ -4,29 +4,27 @@ using UnityEngine;
 
 public enum BarState
 {
-    ToUp,
-    ToDown
+    ToLeft,
+    ToRight
 }
 
 public enum BarPosition
 {
-    At_Up,
+    At_Left,
     At_Center,
-    At_Down
+    At_Right
 }
 
 public class Bar : MonoBehaviour
 {
-    [SerializeField] LimitUp Limit_Up;
-    [SerializeField] LimitDown Limit_Down;
-    [SerializeField] UpSquare Up_Square;
-    [SerializeField] DownSquare Down_Square;
+    [SerializeField] LimitLeft Limit_Left;
+    [SerializeField] LimitRight Limit_Right;
+    [SerializeField] LeftSquare Left_Square;
+    [SerializeField] RightSquare Right_Square;
     [SerializeField] CenterSquare Center_Square;
     [SerializeField] float speed;
 
-    Collider2D trigger_up;
     Collider2D trigger_center;
-    Collider2D trigger_down;
     BarState state;
     BarPosition position;
     public bool isAtCenter = false;
@@ -34,31 +32,35 @@ public class Bar : MonoBehaviour
 
     void Start()
     {
-        state = BarState.ToUp;
+        state = BarState.ToLeft;
         trigger_center = Center_Square.GetComponent<Collider2D>();
-        trigger_up = Up_Square.GetComponent<Collider2D>();
-        trigger_down = Down_Square.GetComponent<Collider2D>();
     }
 
     void Update()
     {
-        if (state == BarState.ToUp)
+        if (state == BarState.ToLeft)
         {
-            MoveBar(Vector3.up, Limit_Up.transform.position.y, BarState.ToDown);
+            MoveBar(Vector3.left, Limit_Left.transform.position.x, BarState.ToRight);
+#if UNITY_EDITOR
+            Debug.Log("To Left");
+#endif
         }
-        else if (state == BarState.ToDown)
+        else if (state == BarState.ToRight)
         {
-            MoveBar(Vector3.down, Limit_Down.transform.position.y, BarState.ToUp);
+            MoveBar(Vector3.right, Limit_Right.transform.position.x, BarState.ToLeft);
+#if UNITY_EDITOR
+            Debug.Log("To Right");
+#endif
         }
 
     }
 
-    private void MoveBar(Vector3 direction, float targetY, BarState nextState)
+    private void MoveBar(Vector3 direction, float targetX, BarState nextState)
     {
-        float newY = transform.position.y + direction.y * speed * Time.deltaTime;
-        if ((direction.y > 0 && newY >= targetY) || (direction.y < 0 && newY <= targetY))
+        float newX = transform.position.x + direction.x * speed * Time.deltaTime;
+        if ((direction.x > 0 && newX >= targetX) || (direction.x < 0 && newX <= targetX))
         {
-            transform.position = new Vector3(transform.position.x, targetY);
+            transform.position = new Vector3(targetX, transform.position.y);
             state = nextState;
         }
         else
@@ -69,19 +71,17 @@ public class Bar : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other == trigger_up)
-        {
-            Position = BarPosition.At_Up;
-            isAtCenter = false;
-        }
         if (other == trigger_center)
         {
-            Position = BarPosition.At_Center;
             isAtCenter = true;
+            Debug.Log("Bar is at center");
         }
-        if (other == trigger_down)
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision == trigger_center)
         {
-            Position = BarPosition.At_Down;
             isAtCenter = false;
         }
     }
