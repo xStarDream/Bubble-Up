@@ -26,7 +26,7 @@ public class DestroyOnClick : MonoBehaviour
 
     private void Update()
     {
-        if(secretScore > 12f)
+        if(secretScore > 7f)
         {
             Debug.Log("CAMBIO SCENA FINE LIVELLO");
         }
