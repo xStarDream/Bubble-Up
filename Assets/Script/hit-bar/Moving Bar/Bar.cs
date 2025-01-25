@@ -30,7 +30,7 @@ public class Bar : MonoBehaviour
     BarState state;
     BarPosition position;
     public bool isAtCenter = false;
-    bool isBarKeyDOwn = false;
+    // bool isBarKeyDOwn = false;
 
     void Start()
     {
@@ -51,17 +51,6 @@ public class Bar : MonoBehaviour
             MoveBar(Vector3.down, Limit_Down.transform.position.y, BarState.ToUp);
         }
 
-        if (position == BarPosition.At_Center && Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Bingo");
-            isBarKeyDOwn = true;
-            Debug.Log("Tasto premuto: " + isBarKeyDOwn);
-        }
-        if ((position == BarPosition.At_Up || position == BarPosition.At_Down) && Input.GetMouseButtonDown(0))
-        {
-            isBarKeyDOwn = false;
-            Debug.Log("Tasto premuto: " + isBarKeyDOwn);
-        }
     }
 
     private void MoveBar(Vector3 direction, float targetY, BarState nextState)
@@ -82,17 +71,17 @@ public class Bar : MonoBehaviour
     {
         if (other == trigger_up)
         {
-            position = BarPosition.At_Up;
+            Position = BarPosition.At_Up;
             isAtCenter = false;
         }
         if (other == trigger_center)
         {
-            position = BarPosition.At_Center;
+            Position = BarPosition.At_Center;
             isAtCenter = true;
         }
         if (other == trigger_down)
         {
-            position = BarPosition.At_Down;
+            Position = BarPosition.At_Down;
             isAtCenter = false;
         }
     }
@@ -104,4 +93,5 @@ public class Bar : MonoBehaviour
     }
 
     public float Speed { get => speed; set => speed = value; }
+    public BarPosition Position { get => position; set => position = value; }
 }
