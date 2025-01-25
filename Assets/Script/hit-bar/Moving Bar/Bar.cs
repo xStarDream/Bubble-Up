@@ -1,81 +1,102 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public enum BarState
 {
     ToUp,
     ToDown
 }
+
+public enum BarPosition
+{
+    At_Up,
+    At_Center,
+    At_Down
+}
+
 public class Bar : MonoBehaviour
 {
     [SerializeField] LimitUp Limit_Up;
     [SerializeField] LimitDown Limit_Down;
+    [SerializeField] UpSquare Up_Square;
+    [SerializeField] DownSquare Down_Square;
     [SerializeField] CenterSquare Center_Square;
     [SerializeField] float speed;
 
+    Collider2D trigger_up;
     Collider2D trigger_center;
+    Collider2D trigger_down;
     BarState state;
-    public bool isBarAtCenter = false;
+    BarPosition position;
+    public bool isAtCenter = false;
     bool isBarKeyDOwn = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         state = BarState.ToUp;
         trigger_center = Center_Square.GetComponent<Collider2D>();
-        // Debug.Log(trigger_center.isTrigger);
-        // Debug.Log($"Limit_Up Y: {Limit_Up.transform.position.y}, Limit_Down Y: {Limit_Down.transform.position.y}");
-
+        trigger_up = Up_Square.GetComponent<Collider2D>();
+        trigger_down = Down_Square.GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (State == BarState.ToUp)
+        if (state == BarState.ToUp)
         {
             MoveBar(Vector3.up, Limit_Up.transform.position.y, BarState.ToDown);
         }
-        else if (State == BarState.ToDown)
+        else if (state == BarState.ToDown)
         {
             MoveBar(Vector3.down, Limit_Down.transform.position.y, BarState.ToUp);
         }
 
-        if (isBarAtCenter && Input.GetMouseButtonDown(0))
+        if (position == BarPosition.At_Center && Input.GetMouseButtonDown(0))
         {
             Debug.Log("Bingo");
             isBarKeyDOwn = true;
             Debug.Log("Tasto premuto: " + isBarKeyDOwn);
         }
+        if ((position == BarPosition.At_Up || position == BarPosition.At_Down) && Input.GetMouseButtonDown(0))
+        {
+            isBarKeyDOwn = false;
+            Debug.Log("Tasto premuto: " + isBarKeyDOwn);
+        }
     }
 
-        private void MoveBar(Vector3 direction, float targetY, BarState nextState)
+    private void MoveBar(Vector3 direction, float targetY, BarState nextState)
     {
-        // Debug.Log($"Moving in direction: {direction}, Target Y: {targetY}, Current Y: {transform.position.y}");
-        float newY = transform.position.y + direction.y * Speed * Time.deltaTime;
+        float newY = transform.position.y + direction.y * speed * Time.deltaTime;
         if ((direction.y > 0 && newY >= targetY) || (direction.y < 0 && newY <= targetY))
         {
             transform.position = new Vector3(transform.position.x, targetY);
-            State = nextState;
+            state = nextState;
         }
         else
         {
-            transform.position += Speed * Time.deltaTime * direction;
+            transform.position += speed * Time.deltaTime * direction;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other == trigger_up)
+        {
+            position = BarPosition.At_Up;
+            isAtCenter = false;
+        }
         if (other == trigger_center)
         {
-            isBarAtCenter = true;
+            position = BarPosition.At_Center;
+            isAtCenter = true;
         }
-    }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other == trigger_center)
+        if (other == trigger_down)
         {
-            isBarAtCenter = false;
+            position = BarPosition.At_Down;
+            isAtCenter = false;
         }
     }
+
     public BarState State
     {
         get { return state; }
