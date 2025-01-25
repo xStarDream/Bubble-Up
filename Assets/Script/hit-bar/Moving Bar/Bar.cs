@@ -39,7 +39,7 @@ public class Bar : MonoBehaviour
             MoveBar(Vector3.down, Limit_Down.transform.position.y, BarState.ToUp);
         }
 
-        if (isBarAtCenter && Input.GetKeyDown(KeyCode.Space))
+        if (isBarAtCenter && Input.GetMouseButtonDown(0))
         {
             Debug.Log("Bingo");
             isBarKeyDOwn = true;
