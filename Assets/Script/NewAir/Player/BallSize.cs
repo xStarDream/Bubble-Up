@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class BallSize : MonoBehaviour
 {
+    [SerializeField] GameObject playerObj;
     [SerializeField] Transform trPlayer;
+    [SerializeField] FadeIn fadeIn;
+    [SerializeField] PlayerInput input;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,7 +26,8 @@ public class BallSize : MonoBehaviour
 
         if (trPlayer.transform.localScale.x <= 0.5f)
         {
-            Debug.Log("PARTITA ANIMAZIONE SCOPPIO");
+            playerObj.SetActive(false);
+            fadeIn.StartFadeIn();
         }
     }
 }

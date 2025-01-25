@@ -1,48 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FadeIn : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
-    [SerializeField] Image img;
-    [SerializeField] float fadeDuration;
+    [SerializeField] float fadeDuration = 2f;
 
     private void Start()
     {
-        // Assicurati che l'alpha parta da 0 (completamente trasparente)
-        if (img != null)
-        {
-            Color color = img.color;
-            color.a = 0;
-            img.color = color;
-        }
+        // Assicuriamoci che tutti i figli del canvas partano con alpha 0
+        SetAlphaForAll(0);
+
+        // Avvia il fade-in
+        //StartCoroutine(FadeInElements());
     }
 
     // Metodo per avviare il fade-in
-    public static void StartFadeIn()
+    public void StartFadeIn()
     {
-        StartCoroutine(FadeInCoroutine());
+        StartCoroutine(FadeInElements());
     }
 
-    private IEnumerator FadeInCoroutine()
+    // Coroutine per far comparire gradualmente tutti gli elementi figli
+    private IEnumerator FadeInElements()
     {
-        float timeElapsed = 0f;
+        float elapsedTime = 0f;
 
-        // Fai un fade-in da alpha = 0 a alpha = 1
-        while (timeElapsed < fadeDuration)
+        while (elapsedTime < fadeDuration)
         {
-            timeElapsed += Time.deltaTime;
-            Color color = image.color;
-            color.a = Mathf.Lerp(0, 1, timeElapsed / fadeDuration);
-            image.color = color;
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, elapsedTime / fadeDuration);
+
+            // Aggiorna l'alpha di tutti gli elementi
+            SetAlphaForAll(alpha);
+
             yield return null;
         }
 
-        // Assicurati che l'alpha sia esattamente 1 alla fine
-        Color finalColor = image.color;
-        finalColor.a = 1;
-        image.color = finalColor;
+        // Assicuriamoci che alla fine l'alpha sia esattamente 1
+        SetAlphaForAll(1);
+    }
+
+    // Metodo per impostare l'alpha su tutti gli elementi figli del canvas
+    private void SetAlphaForAll(float alpha)
+    {
+        foreach (Graphic graphic in canvas.GetComponentsInChildren<Graphic>())
+        {
+            Color color = graphic.color;
+            color.a = alpha;
+            graphic.color = color;
+        }
     }
 }
