@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour
     void FixedUpdate()
     {
         trPlayer.position = player.transform.position; // aggiorno la posizione attuale del giocatore
-        Debug.Log("trplayer aggiornato " + trPlayer.position);
+        //Debug.Log("trplayer aggiornato " + trPlayer.position);
     }
 
     void SpawnPrefab(int flag)
@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
         {
             // Istanzia il prefab nella posizione casuale
             Instantiate(good, spawnPosition, Quaternion.identity);
-            Debug.Log("Oggetto spawnato in posizione: " + spawnPosition);
+            //Debug.Log("Oggetto spawnato in posizione: " + spawnPosition);
         }
         else //cattivo
         {
