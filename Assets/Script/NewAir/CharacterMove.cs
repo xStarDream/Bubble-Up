@@ -13,6 +13,7 @@ public class CharacterMove : MonoBehaviour
     private bool isMoving;
     private PlayerInput input;
     public float speed = 5f; // Velocità di movimento
+    float speedMultiplier = 1f;
 
     void Awake()
     {
@@ -23,7 +24,11 @@ public class CharacterMove : MonoBehaviour
         {
             if (ctx.control.name == "leftButton")
             {
-                HandleLeftClick();
+                HandleClick(1f);
+            }
+            if (ctx.control.name == "rightButton")
+            {
+                HandleClick(2f);
             }
         };
     }
@@ -37,8 +42,10 @@ public class CharacterMove : MonoBehaviour
         rb.angularVelocity = 0f;
     }
 
-    private void HandleLeftClick()
+    private void HandleClick(float multiplier)
     {
+        speedMultiplier = multiplier; //aggiorno la speedMultiplier globale
+
         // Ottieni la posizione del mouse in coordinate dello schermo
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
@@ -57,12 +64,13 @@ public class CharacterMove : MonoBehaviour
         if (isMoving)
         {
             // Movimento fluido con Rigidbody2D
-            rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition, speed * Time.fixedDeltaTime));
+            rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition, (speed * speedMultiplier) * Time.fixedDeltaTime));
 
             // Ferma il movimento quando raggiunge il target
             if (Vector2.Distance(rb.position, targetPosition) < 0.1f)
             {
                 isMoving = false;
+                speedMultiplier = 1f;
             }
         }
     }
