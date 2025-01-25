@@ -26,7 +26,7 @@ public class CharacterAnim : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
+        //Ciao
         if (timer >= frameRate)
         {
             timer = 0f;
