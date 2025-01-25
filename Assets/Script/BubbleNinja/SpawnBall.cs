@@ -14,7 +14,7 @@ public class SpawnBall : MonoBehaviour
 
     int randomGoodBad = 0;
     float secretScore = 0f;
-    float wait = 0.3f;
+    float wait = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class SpawnBall : MonoBehaviour
 
         // Genera una posizione casuale sull'asse Y tra i limiti (topDx.y e topSx.y)
         // topDx.y è il limite inferiore e topSx.y è il limite superiore
-        float randomY = UnityEngine.Random.Range(topDx.position.y, topSx.position.y);
+        float randomY = UnityEngine.Random.Range(topDx.position.y, bottomSx.position.y);
 
         Vector3 spawnPosition = new Vector3(randomX, randomY, 0f);
 

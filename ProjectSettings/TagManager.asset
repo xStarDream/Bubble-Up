@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Good
   - Bad
+  - Npc
   layers:
   - Default
   - TransparentFX
