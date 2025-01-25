@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject player;
 
     float offset = 50f;
-    float wait = 0.3f;
+    float wait = 0.7f;
     float spawnY = 10f;
     int randomGoodBad = 0;
 
