@@ -24,8 +24,9 @@ public class BackGroundMove : MonoBehaviour
                 go.transform.position = currentPosition;
 
                 // Puoi aggiungere una condizione di stop, per esempio, fermarsi quando il gameObject arriva a una certa posizione
-                if (go.transform.position.y < -50f) // Ferma la discesa quando raggiunge un certo punto (ad esempio -5)
+                if (go.transform.position.y < -50.2f) // Ferma la discesa quando raggiunge un certo punto (ad esempio -5)
                 {
+                    Debug.Log("NUOVA SCENA");
                     break;
                 }
             }
