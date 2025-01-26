@@ -13,6 +13,7 @@ public class DestroyOnClick : MonoBehaviour
     [SerializeField] FadeIn fadeIn;
     [SerializeField] GameObject puls1;
     [SerializeField] GameObject puls2;
+    public AudioSource bop;
 
     private void Awake()
     {
@@ -83,6 +84,8 @@ public class DestroyOnClick : MonoBehaviour
                     // Attiva l'animazione di esplosione
                     objAnimator.SetTrigger("Explosion2");
                 }
+                bop.Play();
+
 
 
                 // Distruggi l'oggetto dopo che l'animazione è terminata
@@ -109,6 +112,7 @@ public class DestroyOnClick : MonoBehaviour
                     // Attiva l'animazione di esplosione
                     objAnimator.SetTrigger("Explosion2");
                 }
+                bop.Play();
 
 
                 // Distruggi l'oggetto dopo che l'animazione è terminata
