@@ -8,7 +8,9 @@ public class DestroyOnClick : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera; // La camera principale
     private PlayerInput input;
-    float secretScore = 0f;
+    float secretScore = 3f;
+    bool dead = false;
+    [SerializeField] FadeIn fadeIn;
 
     private void Awake()
     {
@@ -22,13 +24,20 @@ public class DestroyOnClick : MonoBehaviour
                 DetectAndDestroy();
             }
         };
+
+        StartCoroutine(DurataLivello());
     }
 
     private void Update()
     {
-        if(secretScore > 7f)
+        if (dead == false)
         {
-            Debug.Log("CAMBIO SCENA FINE LIVELLO");
+            if (secretScore <= 0f)
+            {
+                Debug.Log("condizione avverata");
+                dead = true;
+                fadeIn.StartFadeIn();
+            }
         }
     }
 
@@ -43,7 +52,8 @@ public class DestroyOnClick : MonoBehaviour
 
         if (hit.collider != null && hit.collider.CompareTag("Good"))
         {
-            secretScore += 1f;
+            Debug.Log("secretscore " + secretScore);
+            secretScore -= 1f;
 
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
@@ -69,7 +79,6 @@ public class DestroyOnClick : MonoBehaviour
         }
         else if (hit.collider != null && hit.collider.CompareTag("Bad"))
         {
-            secretScore -= 0.5f;
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
 
@@ -107,6 +116,12 @@ public class DestroyOnClick : MonoBehaviour
 
         // Distruggi l'oggetto
         Destroy(obj);
+    }
+
+    public IEnumerator DurataLivello()
+    {
+        yield return new WaitForSeconds(42f);
+        Debug.Log("CAMBIO SCENA FINE LIVELLO");
     }
 
     private void OnEnable()

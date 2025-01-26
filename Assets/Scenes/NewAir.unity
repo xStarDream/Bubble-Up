@@ -1238,7 +1238,6 @@ GameObject:
   - component: {fileID: 734581840}
   - component: {fileID: 734581842}
   - component: {fileID: 734581844}
-  - component: {fileID: 734581845}
   - component: {fileID: 734581846}
   m_Layer: 0
   m_Name: Player
@@ -1280,7 +1279,7 @@ MonoBehaviour:
   rb: {fileID: 734581841}
   speed: 5
   worldPosition: {x: 0, y: 0}
-  animator: {fileID: 734581845}
+  animator: {fileID: 1213718399}
 --- !u!50 &734581841
 Rigidbody2D:
   serializedVersion: 4
@@ -1359,27 +1358,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!95 &734581845
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734581836}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c1ed8d28d0c6c544a2aafdb1c10f4ca, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &734581846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1418,8 +1396,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 944449977
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1652902254, guid: 26ac4558376393149a8ff1de2e64a908, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1743,6 +1721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1213718397}
   - component: {fileID: 1213718398}
+  - component: {fileID: 1213718399}
   m_Layer: 0
   m_Name: Omino
   m_TagString: Untagged
@@ -1817,6 +1796,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1213718399
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213718396}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c1ed8d28d0c6c544a2aafdb1c10f4ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1323097692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1323097693
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -372,8 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6130043378835528148}
-  incrementSpeed: 0.03
-  targetScale: {x: 2, y: 2, z: 2}
+  incrementSpeed: 0.1
 --- !u!95 &-8290032404629063069
 Animator:
   serializedVersion: 5
