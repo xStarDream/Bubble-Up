@@ -69,6 +69,7 @@ public class StoryboardManager : MonoBehaviour
 
     void ShowMenu()
     {
+        Tween.StopAll();
         particles.SetActive(true);
         player.GetComponent<SpriteRenderer>().sprite = seduto;
         canvas.gameObject.SetActive(true);
