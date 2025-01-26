@@ -13,4 +13,9 @@ public class GameManager : MonoBehaviour
         canva.SetActive(true);
 
     }
+    
+    public void RestartGame()
+    {
+        Scene_Controller.LoadScene(0);
+    }
 }

@@ -12,9 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/BubbleNinja.unity
     guid: 33e8c5e338628b44fa431e3df90ff04a
   - enabled: 1
+    path: Assets/Scenes/Intermezzo1.unity
+    guid: 6f350816947b0ea49a40c515fd5d756d
+  - enabled: 1
     path: Assets/Scenes/NewAir.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Bubble Fusion.unity
+    path: Assets/Scenes/Intermezzo2.unity
+    guid: b263503742157434c9d90a3d3464fed9
+  - enabled: 1
+    path: Assets/Scenes/HitBar.unity
     guid: 1d094a1c83724d5cf9063cb28df41904
+  - enabled: 1
+    path: Assets/Scenes/Finale.unity
+    guid: 203d78a38e1df9c40954c423a5003fc0
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 3da23289ba6b5e3419ddd3f514dd9a97
   m_configObjects: {}
