@@ -42,7 +42,7 @@ public class HitBarHandler : MonoBehaviour
                 MoveBubble(bubblePlayer, SpeedBubble);
                 MoveBubble(bubbleNPC, -SpeedBubble);
                 Bar.Speed += 0.25f;
-                // buttonCenterPress.Play();
+                buttonCenterPress.Play();
             }
             if (!Bar.isAtCenter && Input.GetMouseButtonDown(0))
             {
