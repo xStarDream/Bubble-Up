@@ -13,27 +13,51 @@ public class CharacterMove : MonoBehaviour
     private bool isMoving;
     private PlayerInput input;
     public float speed = 5f; // Velocità di movimento
-    float speedMultiplier = 1f;
+    float speedMultiplier = 1f; // Moltiplicatore di velocità per il movimento sinistro
+
     public Vector2 worldPosition;
 
     private bool cooldown = false; // Per verificare se il tasto destro è in cooldown
     private float rightClickCooldownTime = 0.75f; // Durata del cooldown in secondi
+
+    float multiply = 1f;
+
+    public Animator animator;  // Riferimento all'Animator
+
 
     void Awake()
     {
         input = new PlayerInput();
 
         // Assegna l'input per il click del mouse
-        input.CharacterControls.MouseSxDx.performed += ctx =>
+        input.CharacterControls.MouseSxDx.started += ctx =>
         {
             if (ctx.control.name == "leftButton")
             {
-                HandleClick(1f);
+                multiply = 1f;
+                animator.SetBool("IsMove", true);
+                animator.SetBool("IsSprint", false);
+                isMoving = true; // Avvia il movimento
+                
             }
-            if (ctx.control.name == "rightButton" && cooldown == false)
+        };
+
+        input.CharacterControls.MouseSxDx.performed += ctx =>
+        {
+            if (ctx.control.name == "rightButton" && !cooldown)
             {
+                animator.SetBool("IsSprint", true);
+
                 StartCoroutine(HandleRightClickCooldown()); // Avvia la coroutine per il cooldown
-                HandleClick(2f);
+                HandleRightClick(); // Gestisce il click destro
+            }
+        };
+
+        input.CharacterControls.MouseSxDx.canceled += ctx =>
+        {
+            if (ctx.control.name == "leftButton")
+            {
+                isMoving = false; // Ferma il movimento quando il tasto sinistro è rilasciato
             }
         };
     }
@@ -47,40 +71,67 @@ public class CharacterMove : MonoBehaviour
         rb.angularVelocity = 0f;
     }
 
-    private void HandleClick(float multiplier)
+    private void HandleRightClick()
     {
-        speedMultiplier = multiplier; //aggiorno la speedMultiplier globale
-
         // Ottieni la posizione del mouse in coordinate dello schermo
         Vector2 mousePosition = Mouse.current.position.ReadValue();
-
         // Converti la posizione del mouse in coordinate del mondo
         worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-
         // Imposta il targetPosition (con Z=0 per il 2D)
         targetPosition = new Vector2(worldPosition.x, worldPosition.y);
-        isMoving = true;
+        multiply = 2f;
+        // Muovi la pallina direttamente verso il target con velocità costante
+        MoveTowardsTarget(speed);
+    }
+
+    private void HandleClick(float multiplier)
+    {
+        // Imposta la velocità di movimento per il tasto sinistro
+        speedMultiplier = multiplier;
+        // Aggiorna la posizione del target
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        targetPosition = new Vector2(worldPosition.x, worldPosition.y);
     }
 
     private void FixedUpdate()
     {
-        // Verifica che il player non sia dentro il limite prima di muoversi
+        float stopDistance = 0.1f; // Distanza tollerata prima di fermarsi
         if (isMoving)
         {
-            // Movimento fluido con Rigidbody2D
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+            targetPosition = new Vector2(worldPosition.x, worldPosition.y);
+
             rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition, (speed * speedMultiplier) * Time.fixedDeltaTime));
 
-            // Ferma il movimento quando raggiunge il target
-            if (Vector2.Distance(rb.position, targetPosition) < 0.1f)
+            // Imposta il parametro 'isMoving' su true quando il personaggio si muove
+            animator.SetBool("IsMove", true);
+        }
+        else
+        {
+            if (Vector2.Distance(rb.position, targetPosition) > stopDistance)
             {
-                isMoving = false;
-                speedMultiplier = 1f;
+                MoveTowardsTarget(speed);
+            }
+            else
+            {
+                rb.velocity = Vector2.zero; // Ferma la pallina quando è abbastanza vicina al target
+                // Imposta il parametro 'isMoving' su false quando il personaggio è fermo
+                animator.SetBool("IsMove", false);
             }
         }
     }
 
+    private void MoveTowardsTarget(float moveSpeed)
+    {
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        rb.velocity = direction * moveSpeed * multiply; // Muovi la pallina verso il target
+    }
+
     private IEnumerator HandleRightClickCooldown()
     {
+        animator.SetBool("IsSprint", false);
         cooldown = true; // Attiva il cooldown
         yield return new WaitForSeconds(rightClickCooldownTime); // Aspetta per il tempo del cooldown
         cooldown = false; // Disabilita il cooldown

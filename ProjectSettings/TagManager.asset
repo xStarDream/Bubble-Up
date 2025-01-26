@@ -7,7 +7,6 @@ TagManager:
   - Good
   - Bad
   - Npc
-  - BGD
   layers:
   - Default
   - TransparentFX
