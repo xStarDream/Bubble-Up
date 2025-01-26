@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 enum GameState
 {
@@ -17,6 +17,10 @@ public class HitBarHandler : MonoBehaviour
 
     [SerializeField] AudioSource buttonCenterPress;
     [SerializeField] AudioSource buttonWrongPress;
+
+    [SerializeField] Canvas Canvas;
+    [SerializeField] Image cover;
+    [SerializeField] float fadeDuration = 2.0f;
 
     [SerializeField] float SpeedBubble = 0.20f;
     [SerializeField] float collisionThreshold = 0.5f;
@@ -38,15 +42,13 @@ public class HitBarHandler : MonoBehaviour
             MoveBar();
             if (Bar.isAtCenter && Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Click");
                 MoveBubble(bubblePlayer, SpeedBubble);
                 MoveBubble(bubbleNPC, -SpeedBubble);
-                Bar.Speed += 0.25f;
+                AddSpeed();
                 buttonCenterPress.Play();
             }
             if (!Bar.isAtCenter && Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Click");
                 MoveBubble(bubblePlayer, -SpeedBubble);
                 MoveBubble(bubbleNPC, +SpeedBubble);
                 Bar.Speed -= 0.25f;
@@ -56,12 +58,24 @@ public class HitBarHandler : MonoBehaviour
         }
         else if (gameState == GameState.Win)
         {
-            Debug.Log("You Win");
             bubblePlayer.gameObject.SetActive(false);
             bubbleNPC.gameObject.SetActive(false);
             newBubble.gameObject.SetActive(true);
+
+            Canvas.gameObject.SetActive(true);
+            StartCoroutine(FadeIn());
         }
 
+    }
+
+    private void AddSpeed()
+    {
+        if (Bar.Speed < 1 )
+        {
+            Bar.Speed += 0.25f;
+        } else {
+            Bar.Speed = 1;
+        }
     }
 
     void MoveBubble(BubbleCharacter bubbleCharacter, float speed)
@@ -91,6 +105,24 @@ public class HitBarHandler : MonoBehaviour
         else if (Bar.State == BarState.ToRight)
         {
             Bar.MoveTo(Vector3.right, Bar.Limit_Right.transform.position.x, BarState.ToLeft);
+        }
+    }
+
+    IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
+
+            Color color = cover.color;
+            color.a = alpha;
+
+            cover.color = color;
+
+            yield return null;
         }
     }
 
