@@ -25,4 +25,8 @@ public static class Scene_Controller
         if(SceneManager.sceneCountInBuildSettings>SceneManager.GetActiveScene().buildIndex+1)
             LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public static void GetCredit()
+    {
+        LoadScene(SceneManager.sceneCountInBuildSettings-1);
+    }
 }
