@@ -8,7 +8,11 @@ public class DestroyOnClick : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera; // La camera principale
     private PlayerInput input;
-    float secretScore = 0f;
+    float secretScore = 3f;
+    bool dead = false;
+    [SerializeField] FadeIn fadeIn;
+    [SerializeField] GameObject puls1;
+    [SerializeField] GameObject puls2;
 
     private void Awake()
     {
@@ -22,13 +26,30 @@ public class DestroyOnClick : MonoBehaviour
                 DetectAndDestroy();
             }
         };
+
+        StartCoroutine(DurataLivello());
     }
 
     private void Update()
     {
-        if(secretScore > 7f)
+        if (dead == false)
         {
-            Debug.Log("CAMBIO SCENA FINE LIVELLO");
+            if (secretScore <= 0f)
+            {
+                Debug.Log("condizione avverata sconfitta");
+                dead = true;
+                fadeIn.StartFadeIn();
+                puls1.SetActive(true);
+                puls2.SetActive(true);
+
+            }
+            else if (secretScore > 6f)
+            {
+                Debug.Log("condizione avverata vittoria punti");
+                dead = true;
+                Scene_Controller.NextLevel();
+                Debug.Log("CAMBIO SCENA NEXT LEVEL");
+            }
         }
     }
 
@@ -43,7 +64,8 @@ public class DestroyOnClick : MonoBehaviour
 
         if (hit.collider != null && hit.collider.CompareTag("Good"))
         {
-            secretScore += 1f;
+            Debug.Log("secretscore " + secretScore);
+            secretScore -= 1f;
 
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
@@ -69,7 +91,8 @@ public class DestroyOnClick : MonoBehaviour
         }
         else if (hit.collider != null && hit.collider.CompareTag("Bad"))
         {
-            secretScore -= 0.5f;
+            secretScore += 1f;
+
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
 
@@ -107,6 +130,12 @@ public class DestroyOnClick : MonoBehaviour
 
         // Distruggi l'oggetto
         Destroy(obj);
+    }
+
+    public IEnumerator DurataLivello()
+    {
+        yield return new WaitForSeconds(42f);
+        Debug.Log("CAMBIO SCENA FINE LIVELLO");
     }
 
     private void OnEnable()

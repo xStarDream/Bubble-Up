@@ -21,6 +21,8 @@ public class FadeIn : MonoBehaviour
     // Metodo per avviare il fade-in
     public void StartFadeIn()
     {
+        Debug.Log("Inizio il fade-in per la schermata di Game Over");
+
         StartCoroutine(FadeInElements());
     }
 

@@ -35,8 +35,9 @@ public class CharacterMove : MonoBehaviour
             if (ctx.control.name == "leftButton")
             {
                 multiply = 1f;
+                Debug.Log("entrato leftbutton");
                 animator.SetBool("IsMove", true);
-                animator.SetBool("IsSprint", false);
+                //animator.SetBool("Sprint", false);
                 isMoving = true; // Avvia il movimento
                 
             }
@@ -46,7 +47,7 @@ public class CharacterMove : MonoBehaviour
         {
             if (ctx.control.name == "rightButton" && !cooldown)
             {
-                animator.SetBool("IsSprint", true);
+                animator.SetBool("Sprint", true);
 
                 StartCoroutine(HandleRightClickCooldown()); // Avvia la coroutine per il cooldown
                 HandleRightClick(); // Gestisce il click destro
@@ -79,7 +80,7 @@ public class CharacterMove : MonoBehaviour
         worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
         // Imposta il targetPosition (con Z=0 per il 2D)
         targetPosition = new Vector2(worldPosition.x, worldPosition.y);
-        multiply = 2f;
+        multiply = 1.5f;
         // Muovi la pallina direttamente verso il target con velocità costante
         MoveTowardsTarget(speed);
     }
@@ -119,6 +120,7 @@ public class CharacterMove : MonoBehaviour
                 rb.velocity = Vector2.zero; // Ferma la pallina quando è abbastanza vicina al target
                 // Imposta il parametro 'isMoving' su false quando il personaggio è fermo
                 animator.SetBool("IsMove", false);
+                //animator.SetBool("Sprint", false);
             }
         }
     }
@@ -131,7 +133,7 @@ public class CharacterMove : MonoBehaviour
 
     private IEnumerator HandleRightClickCooldown()
     {
-        animator.SetBool("IsSprint", false);
+        animator.SetBool("Sprint", false);
         cooldown = true; // Attiva il cooldown
         yield return new WaitForSeconds(rightClickCooldownTime); // Aspetta per il tempo del cooldown
         cooldown = false; // Disabilita il cooldown
