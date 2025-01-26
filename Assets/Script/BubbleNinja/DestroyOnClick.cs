@@ -34,9 +34,15 @@ public class DestroyOnClick : MonoBehaviour
         {
             if (secretScore <= 0f)
             {
-                Debug.Log("condizione avverata");
+                Debug.Log("condizione avverata sconfitta");
                 dead = true;
                 fadeIn.StartFadeIn();
+            }
+            else if (secretScore > 6f)
+            {
+                Debug.Log("condizione avverata vittoria punti");
+                dead = true;
+                Debug.Log("CAMBIO SCENA NEXT LEVEL");
             }
         }
     }
@@ -79,6 +85,8 @@ public class DestroyOnClick : MonoBehaviour
         }
         else if (hit.collider != null && hit.collider.CompareTag("Bad"))
         {
+            secretScore += 1f;
+
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
 
