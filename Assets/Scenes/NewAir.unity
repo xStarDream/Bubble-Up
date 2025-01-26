@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230051284}
   - component: {fileID: 230051285}
+  - component: {fileID: 230051286}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -290,6 +291,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &230051286
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230051283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c723f394d45f56646b48cd5e9fc779d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &244268159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1345,7 @@ MonoBehaviour:
   trPlayer: {fileID: 734581838}
   fadeIn: {fileID: 1841266951}
   canva: {fileID: 1323097692}
+  animBall: {fileID: 230051286}
 --- !u!58 &734581844
 CircleCollider2D:
   m_ObjectHideFlags: 0

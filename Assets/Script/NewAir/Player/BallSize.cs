@@ -11,6 +11,7 @@ public class BallSize : MonoBehaviour
     [SerializeField] FadeIn fadeIn;
     [SerializeField] PlayerInput input;
     [SerializeField] GameObject canva;
+    [SerializeField] Animator animBall;
 
     void OnTriggerEnter2D(Collider2D other)
     {

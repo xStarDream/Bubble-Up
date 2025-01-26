@@ -37,7 +37,7 @@ public class CharacterMove : MonoBehaviour
                 multiply = 1f;
                 Debug.Log("entrato leftbutton");
                 animator.SetBool("IsMove", true);
-                animator.SetBool("Sprint", false);
+                //animator.SetBool("Sprint", false);
                 isMoving = true; // Avvia il movimento
                 
             }
@@ -80,7 +80,7 @@ public class CharacterMove : MonoBehaviour
         worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
         // Imposta il targetPosition (con Z=0 per il 2D)
         targetPosition = new Vector2(worldPosition.x, worldPosition.y);
-        multiply = 2f;
+        multiply = 1.5f;
         // Muovi la pallina direttamente verso il target con velocità costante
         MoveTowardsTarget(speed);
     }
