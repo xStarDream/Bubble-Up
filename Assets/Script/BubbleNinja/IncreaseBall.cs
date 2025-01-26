@@ -19,7 +19,7 @@ public class IncreaseBall : MonoBehaviour
         // Scala attuale del prefab
         Vector3 initialScale = obj.transform.localScale;
         float elapsedTime = 0f;
-        float incrementDuration = 5.5f;
+        float incrementDuration = 1.8f;
 
         // Finché la scala del prefab non raggiunge il valore target
         while (obj.transform.localScale.x < targetScale.x && obj.transform.localScale.y < targetScale.y && obj.transform.localScale.z < targetScale.z)
