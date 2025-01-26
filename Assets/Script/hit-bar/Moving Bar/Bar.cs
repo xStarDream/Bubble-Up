@@ -17,8 +17,8 @@ public enum BarPosition
 
 public class Bar : MonoBehaviour
 {
-    [SerializeField] LimitLeft Limit_Left;
-    [SerializeField] LimitRight Limit_Right;
+    [SerializeField] LimitLeft LimitLeft;
+    [SerializeField] LimitRight LimitRight;
     [SerializeField] LeftSquare Left_Square;
     [SerializeField] RightSquare Right_Square;
     [SerializeField] CenterSquare Center_Square;
@@ -38,24 +38,11 @@ public class Bar : MonoBehaviour
 
     void Update()
     {
-        if (state == BarState.ToLeft)
-        {
-            MoveBar(Vector3.left, Limit_Left.transform.position.x, BarState.ToRight);
-#if UNITY_EDITOR
-            //Debug.Log("To Left");
-#endif
-        }
-        else if (state == BarState.ToRight)
-        {
-            MoveBar(Vector3.right, Limit_Right.transform.position.x, BarState.ToLeft);
-#if UNITY_EDITOR
-            //Debug.Log("To Right");
-#endif
-        }
+
 
     }
 
-    private void MoveBar(Vector3 direction, float targetX, BarState nextState)
+    public void MoveTo(Vector3 direction, float targetX, BarState nextState)
     {
         float newX = transform.position.x + direction.x * speed * Time.deltaTime;
         if ((direction.x > 0 && newX >= targetX) || (direction.x < 0 && newX <= targetX))
@@ -96,4 +83,6 @@ public class Bar : MonoBehaviour
 
     public float Speed { get => speed; set => speed = value; }
     public BarPosition Position { get => position; set => position = value; }
+    public LimitLeft Limit_Left { get => LimitLeft; set => LimitLeft = value; }
+    public LimitRight Limit_Right { get => LimitRight; set => LimitRight = value; }
 }

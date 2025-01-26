@@ -2,34 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum GameState
+{
+    Run,
+    Win
+}
+
 public class HitBarHandler : MonoBehaviour
 {
     [SerializeField] Bar Bar;
     [SerializeField] BubbleCharacter bubblePlayer;
     [SerializeField] BubbleCharacter bubbleNPC;
+    [SerializeField] BubbleCharacter newBubble;
+
+    // [SerializeField] AudioSource buttonCenterPress;
+    // [SerializeField] AudioSource buttonWrongPress;
+
+    [SerializeField] float SpeedBubble = 0.20f;
+    [SerializeField] float collisionThreshold = 0.5f;
+
+    GameState gameState;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameState = GameState.Run;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (Bar.isAtCenter && Input.GetMouseButtonDown(0))
+        if (gameState == GameState.Run)
         {
-            Debug.Log("Click");
-            //MoveBubble(bubblePlayer, 1);
-            //MoveBubble(bubbleNPC, -1);
+            MoveBar();
+            if (Bar.isAtCenter && Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Click");
+                MoveBubble(bubblePlayer, SpeedBubble);
+                MoveBubble(bubbleNPC, -SpeedBubble);
+                Bar.Speed += 0.25f;
+                // buttonCenterPress.Play();
+            }
+            if (!Bar.isAtCenter && Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Click");
+                MoveBubble(bubblePlayer, -SpeedBubble);
+                MoveBubble(bubbleNPC, +SpeedBubble);
+                Bar.Speed -= 0.25f;
+                // buttonWrongPress.Play();
+            }
+            CheckCollision();
         }
-        // if ((position == BarPosition.At_Up || position == BarPosition.At_Down) && Input.GetMouseButtonDown(0))
-        // {
-        //     isBarKeyDOwn = false;
-        //     Debug.Log("Tasto premuto: " + isBarKeyDOwn);
-        // }
+        else if (gameState == GameState.Win)
+        {
+            Debug.Log("You Win");
+            bubblePlayer.gameObject.SetActive(false);
+            bubbleNPC.gameObject.SetActive(false);
+            newBubble.gameObject.SetActive(true);
+        }
+
     }
 
     void MoveBubble(BubbleCharacter bubbleCharacter, float speed)
@@ -38,5 +70,28 @@ public class HitBarHandler : MonoBehaviour
         newPosition.x += speed;
         bubbleCharacter.transform.position = newPosition;
     }
-    
+
+    void CheckCollision()
+    {
+        float distance = Vector3.Distance(bubblePlayer.transform.position, bubbleNPC.transform.position);
+        if (distance < collisionThreshold)
+        {
+            // Debug.Log("Collision Detected");
+            gameState = GameState.Win;
+
+        }
+    }
+
+    void MoveBar()
+    {
+        if (Bar.State == BarState.ToLeft)
+        {
+            Bar.MoveTo(Vector3.left, Bar.Limit_Left.transform.position.x, BarState.ToRight);
+        }
+        else if (Bar.State == BarState.ToRight)
+        {
+            Bar.MoveTo(Vector3.right, Bar.Limit_Right.transform.position.x, BarState.ToLeft);
+        }
+    }
+
 }

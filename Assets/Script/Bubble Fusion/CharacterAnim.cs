@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterAnim : MonoBehaviour
 {
     [SerializeField] Sprite[] initialAnim;
+    [SerializeField] Sprite[] runAnim;
     [SerializeField] float frameRate = 0.1f;
 
     SpriteRenderer spriteRenderer;
