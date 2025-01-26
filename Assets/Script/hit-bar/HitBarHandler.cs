@@ -15,8 +15,8 @@ public class HitBarHandler : MonoBehaviour
     [SerializeField] BubbleCharacter bubbleNPC;
     [SerializeField] BubbleCharacter newBubble;
 
-    // [SerializeField] AudioSource buttonCenterPress;
-    // [SerializeField] AudioSource buttonWrongPress;
+    [SerializeField] AudioSource buttonCenterPress;
+    [SerializeField] AudioSource buttonWrongPress;
 
     [SerializeField] float SpeedBubble = 0.20f;
     [SerializeField] float collisionThreshold = 0.5f;
