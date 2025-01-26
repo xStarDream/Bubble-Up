@@ -39,12 +39,13 @@ public class HitBarHandler : MonoBehaviour
     {
         if (gameState == GameState.Run)
         {
-            MoveBar();
+            //MoveBar();
             if (Bar.isAtCenter && Input.GetMouseButtonDown(0))
             {
                 MoveBubble(bubblePlayer, SpeedBubble);
                 MoveBubble(bubbleNPC, -SpeedBubble);
                 AddSpeed();
+                Bar.transform.localPosition = Vector3.zero;
                 buttonCenterPress.Play();
             }
             if (!Bar.isAtCenter && Input.GetMouseButtonDown(0))
@@ -52,6 +53,12 @@ public class HitBarHandler : MonoBehaviour
                 MoveBubble(bubblePlayer, -SpeedBubble);
                 MoveBubble(bubbleNPC, +SpeedBubble);
                 Bar.Speed -= 0.25f;
+                if (Bar.Speed < 0.25f)
+                {
+                    Bar.Speed = 0.25f;
+                }
+
+                Bar.transform.localPosition = Vector3.zero;
                 // buttonWrongPress.Play();
             }
             CheckCollision();

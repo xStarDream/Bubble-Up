@@ -28,6 +28,8 @@ public class Bar : MonoBehaviour
     BarState state;
     BarPosition position;
     public bool isAtCenter = false;
+    int direction = 1;
+    [SerializeField] Transform BordoDestro, BordoSinistro;
     // bool isBarKeyDOwn = false;
 
     void Start()
@@ -38,8 +40,22 @@ public class Bar : MonoBehaviour
 
     void Update()
     {
+        Vector3 BarPosition = transform.localPosition+(Vector3.up*speed*direction*Time.deltaTime);
+        if(BarPosition.y>BordoDestro.localPosition.y)
+        {
 
+            direction =-1;
+            BarPosition = BordoDestro.localPosition + (Vector3.up * speed * direction*Time.deltaTime);
 
+        }
+        if (BarPosition.y < BordoSinistro.localPosition.y)
+        {
+            direction = 1;
+            BarPosition = BordoSinistro.localPosition + (Vector3.up * speed * direction*Time.deltaTime);
+
+        }
+
+        gameObject.transform.localPosition = BarPosition;
     }
 
     public void MoveTo(Vector3 direction, float targetX, BarState nextState)
@@ -47,6 +63,12 @@ public class Bar : MonoBehaviour
         float newX = transform.position.x + direction.x * speed * Time.deltaTime;
         if ((direction.x > 0 && newX >= targetX) || (direction.x < 0 && newX <= targetX))
         {
+            /*float offset = 1f;
+            if (state == BarState.ToRight)
+            {
+                offset *= -1;
+            }*/
+
             transform.position = new Vector3(targetX, transform.position.y);
             state = nextState;
         }
