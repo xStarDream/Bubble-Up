@@ -108,6 +108,7 @@ public class Finale : MonoBehaviour
 
             // Attiva l'animazione di esplosione
             objAnimator.SetTrigger("Explosion");
+            bop.Play();
         }
 
         else

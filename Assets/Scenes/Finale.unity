@@ -554,7 +554,7 @@ MonoBehaviour:
   playerSprite: []
   friendSprite: []
   mainCamera: {fileID: 867127485}
-  bop: {fileID: 0}
+  bop: {fileID: 867127489}
   animator: {fileID: 607622947}
 --- !u!114 &867127488
 MonoBehaviour:
@@ -610,7 +610,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 84bce252912860545b783bb70a9a8172, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1681,7 +1681,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d4a99e8be77a51047b371f0ce6b5406b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
