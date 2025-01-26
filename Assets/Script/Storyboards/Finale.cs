@@ -42,6 +42,7 @@ public class Finale : MonoBehaviour
     {
         bolla.transform.localScale = Vector3.one * 0.4f;
         bolla.transform.localPosition = new Vector3(0f, -3.50f, 0.1f);
+        BublePop.gameObject.GetComponent<Collider2D>().enabled=false;
         playerTween = Sequence.Create()
             .Group(Tween.LocalPosition(bolla.transform, endValue: new Vector3(0.0f, 2.8f, 0.1f), duration: 8f, ease: Ease.InOutSine))
             //.Group(Tween.Scale(bolla.transform, endValue: new Vector3(1, 1, 1), duration: 1f, ease: Ease.InOutSine))
@@ -75,7 +76,7 @@ public class Finale : MonoBehaviour
         playerFree.SetActive(true);
         playerTween = Sequence.Create()
             .Chain(Tween.Custom(Color.white, endValue: new Color(255, 255, 255, 0.0f), duration: 4f, onValueChange: newVal => FadeWhite.GetComponent<Image>().color = newVal));
-
+        BublePop.GetComponent<Collider2D>().enabled = true;
         Tween.Scale(BublePop.transform, endValue: new Vector3(4f, 4f, 1f), duration: 1f, ease: Ease.InOutSine, cycles: -1, cycleMode: CycleMode.Yoyo);
 
     }
@@ -85,10 +86,12 @@ public class Finale : MonoBehaviour
         animator.SetBool("explosion", true);
         Debug.Log("PooP");
         Tween.StopAll();
-        BublePop.SetActive(false);
+        //BublePop.SetActive(false);
         playerTween = Sequence.Create()
             .Group(Tween.Delay(1f))
-            .Chain(Tween.Position(playerFree.transform, endValue: new Vector3(1.62f, -1.19f, 0.1f), duration: 5f, ease: Ease.InOutSine));
+            .Chain(Tween.Position(playerFree.transform, endValue: new Vector3(1.62f, -1.19f, 0.1f), duration: 5f, ease: Ease.InOutSine))
+            .Group(Tween.Alpha(BublePop.GetComponent<SpriteRenderer>(),endValue:0f,duration:0.01f,ease: Ease.Linear))
+            .OnComplete(target:this, target=>CallCredit());
 
     }
 
@@ -103,6 +106,8 @@ public class Finale : MonoBehaviour
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
+            BubblePop();
+            BublePop.GetComponent<Collider2D>().enabled = false;
             // Ottieni l'animator dall'oggetto colpito
             Animator objAnimator = hit.collider.GetComponent<Animator>();
 
@@ -125,6 +130,10 @@ public class Finale : MonoBehaviour
     private void OnDisable()
     {
         input.CharacterControls.Disable();
+    }
+    void CallCredit()
+    {
+        Scene_Controller.GetCredit();
     }
 }
 

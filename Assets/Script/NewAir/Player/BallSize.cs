@@ -16,9 +16,13 @@ public class BallSize : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Usa CompareTag per controllare il tag invece del nome
-        if (other.CompareTag("Good") && !(trPlayer.transform.localScale.x > 2.2f))
+        if (other.CompareTag("Good"))
         {
-            trPlayer.transform.localScale *= 1.2f;
+            if(!(trPlayer.transform.localScale.x > 2.2f))
+            {
+                trPlayer.transform.localScale *= 1.2f;
+            }
+
             other.gameObject.SetActive(false);
         }
         else if (other.CompareTag("Bad"))

@@ -25,7 +25,7 @@ public class Intermezzo1 : MonoBehaviour
             .Chain(Tween.LocalPosition(bolla.transform, endValue: new Vector3(-1.7f, -1.15f, - 0.1f), duration: 2f, ease: Ease.InOutSine))
             .Chain(Tween.LocalPosition(bolla.transform, endValue: new Vector3(0.63f, 1.46f, -0.1f), duration: 2f, ease: Ease.InOutSine))
             .Chain(Tween.LocalPosition(bolla.transform, endValue: new Vector3(-1.7f, 5.92f, -0.1f), duration: 2f, ease: Ease.InOutSine))
-            //.OnComplete(target:this , target=> NextScene());
+            .OnComplete(target:this , target=> NextScene());
         ;
     }
 

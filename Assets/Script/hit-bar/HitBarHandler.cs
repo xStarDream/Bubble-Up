@@ -35,7 +35,7 @@ public class HitBarHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (gameState == GameState.Run)
         {
@@ -131,6 +131,7 @@ public class HitBarHandler : MonoBehaviour
 
             yield return null;
         }
+        Scene_Controller.NextLevel();
     }
 
 }

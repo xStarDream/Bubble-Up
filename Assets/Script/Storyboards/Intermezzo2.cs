@@ -63,9 +63,10 @@ public class Intermezzo2 : MonoBehaviour
         player.GetComponent <SpriteRenderer>().sprite = spritePlayer[1];
         Friend.GetComponent<SpriteRenderer>().sprite = spriteFriend[1];
         playerTween = Sequence.Create()
-            .Chain(Tween.Delay(4f))
+            .Chain(Tween.Delay(0.2f))
             .Group(Tween.LocalPosition(bolla.transform, endValue: new Vector3(-1.23f, 0.4f, -0.1f), duration: 0.4f, ease: Ease.InSine))
             .Group(Tween.LocalPosition(bollaFriend.transform, endValue: new Vector3(0.7f, 0.4f, -0.1f), duration: 0.4f, ease: Ease.InSine))
+            //.Chain()
             .OnComplete(target: this, target => NextScene());
 
         ;
