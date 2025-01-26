@@ -11,6 +11,8 @@ public class DestroyOnClick : MonoBehaviour
     float secretScore = 3f;
     bool dead = false;
     [SerializeField] FadeIn fadeIn;
+    [SerializeField] GameObject puls1;
+    [SerializeField] GameObject puls2;
 
     private void Awake()
     {
@@ -37,11 +39,15 @@ public class DestroyOnClick : MonoBehaviour
                 Debug.Log("condizione avverata sconfitta");
                 dead = true;
                 fadeIn.StartFadeIn();
+                puls1.SetActive(true);
+                puls2.SetActive(true);
+
             }
             else if (secretScore > 6f)
             {
                 Debug.Log("condizione avverata vittoria punti");
                 dead = true;
+                Scene_Controller.NextLevel();
                 Debug.Log("CAMBIO SCENA NEXT LEVEL");
             }
         }
